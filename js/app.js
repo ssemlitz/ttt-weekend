@@ -9,6 +9,7 @@ let board, turn, winner
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.squares')
 const messageEl = document.querySelector('#message')
+const resetBtnEl = document.querySelector('button')
  console.log(squareEls)
  console.log(messageEl)
 
@@ -16,6 +17,8 @@ const messageEl = document.querySelector('#message')
 squareEls.forEach(square => {
   square.addEventListener('click', handleClick)
 })
+
+resetBtnEl.addEventListener('click', reset)
 
 
 /*-------------------------------- Functions --------------------------------*/
@@ -46,11 +49,17 @@ function render() {
     } else {
       return (winner === 1 ? messageEl.textContent = "Player 1 has won it!" : messageEl.textContent = "Player 2 has won it!") 
     }
-}
+
+
+  }
 
 function handleClick(evt) {
   const sqIdx = parseInt(evt.target.id.replace('sq', ''))
 
+
+  // if (board.some(1)){
+  //   resetBtnEl.removeAttribute('hidden')
+  // }
 
   if (board[sqIdx] !== null || winner !== null) {
     return
@@ -70,7 +79,6 @@ function getWinner() {
       foundWinner = board[combo[0]]
     }
   })
-  console.log(foundWinner)
   if (foundWinner) return foundWinner
   if (!board.includes(null)){
     return 'T'
@@ -79,7 +87,6 @@ function getWinner() {
   }
 }
 
-// function reset() {
-//   init()
-
+function reset() {
+  init()
 }
