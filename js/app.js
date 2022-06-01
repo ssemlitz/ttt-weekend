@@ -42,6 +42,10 @@ function render() {
     }
   });
 
+    if (board.includes(1)) {
+      resetBtnEl.removeAttribute('hidden')
+    }
+
     if (winner === null) {
       return (turn === 1 ? messageEl.textContent = "Player 1's turn!" : messageEl.textContent = "Player 2's turn!")
     } else if (winner === 'T') {
@@ -55,11 +59,6 @@ function render() {
 
 function handleClick(evt) {
   const sqIdx = parseInt(evt.target.id.replace('sq', ''))
-
-
-  // if (board.some(1)){
-  //   resetBtnEl.removeAttribute('hidden')
-  // }
 
   if (board[sqIdx] !== null || winner !== null) {
     return
@@ -89,4 +88,5 @@ function getWinner() {
 
 function reset() {
   init()
+  resetBtnEl.setAttribute('hidden', true)
 }
