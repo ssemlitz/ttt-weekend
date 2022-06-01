@@ -39,7 +39,9 @@ function render() {
 
   if (winner === null) {
     return (turn === 1 ? messageEl.textContent = "Player 1's turn!" : messageEl.textContent = "Player 2's turn!")
+  } else if (winner === 'T') {
+    return messageEl.textContent = 'We have a tie!'
   } else {
-    messageEl.textContent = 'We have a different result'
+    return (winner === 1 ? messageEl.textContent = "Player 1 has won it!" : messageEl.textContent = "Player 2 has won it!") 
   }
 }
