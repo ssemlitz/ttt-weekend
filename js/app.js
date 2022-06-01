@@ -48,6 +48,29 @@ function render() {
   }
 }
 
-// function handleClick(evt) {
-//   const sqIdx = evt.target.
-// }
+function handleClick(evt) {
+  const sqIdx = parseInt(evt.target.id.replace('sq', ''))
+
+
+  if (board[sqIdx] !== null || winner !== null) {
+    console.log(sqIdx)
+    console.log(winner)
+    return
+  } else {
+    board[sqIdx] = turn
+    console.log(board)
+    turn *= -1
+    console.log(turn)
+  }
+  render()
+}
+
+function getWinner() {
+  winningCombos.forEach(combo => {
+    if (Maths.abs(board[combo[0]] + board[combo[1]] + board[combo[2]] === 3)) {
+      winner = turn
+    } else {
+      winner = 'T'
+    }
+  })
+}
