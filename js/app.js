@@ -37,8 +37,9 @@ function render() {
     }
   });
 
-//   if (winner === null) {
-//     if (turn === 1) {
-//       messageEl.textContent = 
-//   } 
-// }
+  if (winner === null) {
+    return (turn === 1 ? messageEl.textContent = "Player 1's turn!" : messageEl.textContent = "Player 2's turn!")
+  } else {
+    messageEl.textContent = 'We have a different result'
+  }
+}
