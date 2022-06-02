@@ -53,3 +53,14 @@ button {
   justify-content: center;
   align-items: center;
 }
+
+.winnerText {
+  font-family: 'Sacramento', cursive;
+  font-weight: bold;
+  line-height: normal;
+  background-image: linear-gradient(to right, red, orange, yellow, green, blue, purple);
+  -webkit-background-clip: text;
+  color: transparent;
+  margin-bottom: 20px;
+}
+
