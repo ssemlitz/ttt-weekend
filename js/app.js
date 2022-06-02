@@ -11,6 +11,8 @@ const squareEls = document.querySelectorAll('.squares')
 const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('button')
 const title = document.querySelector('h1')
+const section = document.querySelector('section')
+
 
 
 /*----------------------------- Event Listeners -----------------------------*/
@@ -35,10 +37,10 @@ function render() {
   board.forEach((square, index) => {
     if (square === -1) {
       squareEls[index].textContent = '🐱'
-      squareEls[index].setAttribute('class', 'cats')
+      squareEls[index].classList.add('cats')
     } else if (square === 1) {
       squareEls[index].textContent = '🐶'
-      squareEls[index].setAttribute('class', 'dogs')
+      squareEls[index].classList.add('dogs')
     } else {
       squareEls[index].textContent = null
     }
@@ -78,6 +80,10 @@ function getWinner() {
   winningCombos.forEach(combo => {
     if (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3) {
       foundWinner = board[combo[0]]
+      squareEls.forEach(square => {
+        square.classList.add('animate__animated', 'animate__flip')
+      })
+      messageEl.classList.add('animate__animated', 'animate__flip')
       confetti.start(3000)
     }
   })
@@ -93,5 +99,8 @@ function reset() {
   init()
   resetBtnEl.setAttribute('hidden', true)
   confetti.remove()
-
+  squareEls.forEach(square => {
+    square.className = 'squares'
+  })
+  messageEl.removeAttribute('class', 'animate__flip')
 }
