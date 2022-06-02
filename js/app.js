@@ -10,8 +10,8 @@ let board, turn, winner
 const squareEls = document.querySelectorAll('.squares')
 const messageEl = document.querySelector('#message')
 const resetBtnEl = document.querySelector('button')
- console.log(squareEls)
- console.log(messageEl)
+const title = document.querySelector('h1')
+
 
 /*----------------------------- Event Listeners -----------------------------*/
 squareEls.forEach(square => {
@@ -34,9 +34,11 @@ function init() {
 function render() {
   board.forEach((square, index) => {
     if (square === -1) {
-      squareEls[index].textContent = 'O'
+      squareEls[index].textContent = '🐱'
+      squareEls[index].setAttribute('class', 'cats')
     } else if (square === 1) {
-      squareEls[index].textContent = 'X'
+      squareEls[index].textContent = '🐶'
+      squareEls[index].setAttribute('class', 'dogs')
     } else {
       squareEls[index].textContent = null
     }
@@ -47,11 +49,11 @@ function render() {
     }
 
     if (winner === null) {
-      return (turn === 1 ? messageEl.textContent = "Player 1's turn!" : messageEl.textContent = "Player 2's turn!")
+      return (turn === 1 ? messageEl.textContent = "Doggo's turn!" : messageEl.textContent = "Cat's turn!")
     } else if (winner === 'T') {
       return messageEl.textContent = 'We have a tie!'
     } else {
-      return (winner === 1 ? messageEl.textContent = "Player 1 has won it!" : messageEl.textContent = "Player 2 has won it!") 
+      return (winner === 1 ? messageEl.textContent = "Doggo has won it!" : messageEl.textContent = "Player 2 has won it!")
     }
 
 
@@ -76,6 +78,7 @@ function getWinner() {
   winningCombos.forEach(combo => {
     if (Math.abs(board[combo[0]] + board[combo[1]] + board[combo[2]]) === 3) {
       foundWinner = board[combo[0]]
+      confetti.start(3000)
     }
   })
   if (foundWinner) return foundWinner
@@ -89,4 +92,6 @@ function getWinner() {
 function reset() {
   init()
   resetBtnEl.setAttribute('hidden', true)
+  confetti.remove()
+
 }

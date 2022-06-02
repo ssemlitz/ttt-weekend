@@ -4,15 +4,23 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Montserrat&family=Sacramento&display=swap" rel="stylesheet">
+	<link
+	rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+	/>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 	<link rel="stylesheet" href="./css/style.css">
 	<script defer src="./js/app.js"></script>
+	<script defer src="./js/confetti.js"></script>
 	<title>Tic Tac Toe</title>
 </head>
 <body>
-	<h1>Tic-Tac-Toe</h1>
-	<h2 id="message">Message</h2>
+	<h1 class="animate__animated animate__backInLeft">Dogs vs Cats</h1>
+	<h3 class="animate__animated animate__backInLeft">Tic-Tac-Toe</h3>
+	<h2 class="animate__animated animate__backInLeft" id="message">Message</h2>
 
-	<section class="board">
+	<section class="board animate__animated animate__backInRight">
 		<div class="squares" id="sq0"></div>
 		<div class="squares" id="sq1"></div>
 		<div class="squares" id="sq2"></div>
@@ -23,6 +31,6 @@
 		<div class="squares" id="sq7"></div>
 		<div class="squares" id="sq8"></div>
 	</section>    
-	<button type="reset" hidden>Reset</button>
+	<button type="reset" class="btn btn-primary" hidden>Reset</button>
 </body>
 </html>
