@@ -1,5 +1,5 @@
 body {
-    background-color: lightblue;
+  background-color: lightblue;
 	/* Use a system font, if none are available use an available sans-sarif   font */
 	font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
 		Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
@@ -44,7 +44,7 @@ div {
 }
 
 button {
-  margin-top: 5px;
+  margin-top: 10px;
 }
 
 .cats,

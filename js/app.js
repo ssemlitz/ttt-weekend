@@ -5,6 +5,10 @@ const winningCombos = [[0, 1, 2], [3, 4, 5], [6, 7, 8], [0, 3, 6], [1, 4, 7], [2
 /*---------------------------- Variables (state) ----------------------------*/
 let board, turn, winner
 
+const dogAudio = new Audio('../Media/dog.mp3')
+const catAudio = new Audio('../Media/cat.mp3')
+const yayAudio = new Audio('../Media/children-yay.mp3')
+
 
 /*------------------------ Cached Element References ------------------------*/
 const squareEls = document.querySelectorAll('.squares')
@@ -86,6 +90,7 @@ function getWinner() {
       messageEl.classList.add('animate__animated', 'animate__flip')
       messageEl.classList.add('winnerText')
       confetti.start(3000)
+      yayAudio.play()
     }
   })
   if (foundWinner) return foundWinner
@@ -104,4 +109,8 @@ function reset() {
     square.className = 'squares'
   })
   messageEl.removeAttribute('class', 'animate__flip')
+}
+
+function turnBounce() {
+  messageEl.classList.add('animate__animated', 'animate__bounce')
 }
