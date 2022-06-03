@@ -55,7 +55,7 @@ function render() {
     } else if (winner === 'T') {
       return messageEl.textContent = 'We have a tie!'
     } else {
-      return (winner === 1 ? messageEl.textContent = "Doggo has won it!" : messageEl.textContent = "Player 2 has won it!")
+      return (winner === 1 ? messageEl.textContent = "Doggo has won it!" : messageEl.textContent = "Cat has won it!")
     }
 
 
