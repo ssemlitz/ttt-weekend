@@ -86,7 +86,7 @@ function getWinner() {
       messageEl.classList.add('animate__animated', 'animate__flip')
       messageEl.classList.add('winnerText')
       confetti.start(3000)
-      yayAudio.play()
+      // yayAudio.play()
     }
   })
   if (foundWinner) return foundWinner
