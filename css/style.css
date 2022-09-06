@@ -11,6 +11,10 @@ body {
   align-items: center;
 }
 
+div{
+  visibility: hidden;
+}
+
 h1 {
   font-size: 70px;
   font-family: 'Sacramento', cursive;
@@ -36,11 +40,12 @@ section.board {
   grid-gap: 0vmin;
 }
 
-div {
+.squares {
   border: 2px solid black;
   font-size: 8vmin;
   text-align: center;
   vertical-align: middle;
+  visibility: visible;
 }
 
 button {
@@ -64,3 +69,6 @@ button {
   margin-bottom: 20px;
 }
 
+#teal-job-tracker-root-stable {
+  /* display: none; */
+}
